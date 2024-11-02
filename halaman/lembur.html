@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Lembur Karyawan</title>
+    <link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar bsb-navbar bsb-navbar-caret py-3 geser-target geser" style="background-color: #373dff; height: 4em;">
+        <div class="container position-relative justify-content-end">
+            <div class="d-flex justify-content-end">
+                <img src="../images/user.jpg" class="rounded-circle" width="40" height="40">
+            </div>
+            <button class="navbar-toggler border-0 position-absolute start-0 text-white d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+        </div>
+        <div class="offcanvas show offcanvas-start border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="width: 20vw;">
+            <div class="offcanvas-header" style="background-color: #373dff;" data-bs-theme="dark">
+                <img class="mx-3" src="../images/univ_pamulang.png" width="30" height="30" alt="">
+                <p class="offcanvas-title text-white" id="offcanvasNavbarLabel">Universitas Pamulang</p>
+                <button type="button" class="btn-close close-sidebar" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="d-flex mt-3 mx-3">
+                <img src="../images/user.jpg" class="rounded-circle" width="40" height="40">
+                <div class="ms-3">
+                    <h6 class="fw-bold fs-6 text-bold">Welcome, Winky Eprilianto</h6>
+                    <p class="fw-bold" style="color: rgb(55, 188, 66);">Administrator</p>
+                </div>
+            </div>
+            <hr class="mx-3">
+            <div class="offcanvas-body fs-5">
+                <ul class="navbar-nav justify-content-end flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="../index.html"><i class="bi bi-house-door"></i> Dashboard</a>
+                    </li>
+
+                    <h6 class="fw-bold ms-3 mt-3 text-secondary">MENU KARYAWAN</h6>
+
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="karyawan.html"><i class="bi bi-person-lines-fill"></i> Karyawan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="jabatan.html"><i class="bi bi-shield-fill"></i> Jabatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="divisi.html"><i class="bi bi-buildings-fill"></i> Divisi</a>
+                    </li>
+
+                    <h6 class="fw-bold ms-3 mt-3 text-secondary">MENU ABSENSI</h6>
+
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="absensi.html"><i class="bi bi-calendar2-range-fill"></i> Absensi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="izin.html"><i class="bi bi-calendar2-range-fill"></i> Izin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-3 text-secondary" aria-current="page" href="lembur.html"><i class="bi bi-calendar2-range-fill"></i> Lembur</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex geser-target geser">
+      <div id="content" class="w-100">
+        <!-- Tabel Daftar Lembur Karyawan -->
+        <div class="container-fluid py-5 px-4" style="background-image: linear-gradient(to left, #0d15fd, #2331fa);">
+          <div class="container">
+            <h1 class="text-white my-3 fs-2">Daftar Lembur Karyawan</h1>
+
+            <div class="container p-4 my-4 bg-white rounded">
+              <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Karyawan</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Jam Lembur Mulai | Berakhir</th>
+                    <th scope="col">Keperluan Lembur</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="lemburTable">
+                  <tr>
+                    <td>1</td>
+                    <td>Agus Setiawan</td>
+                    <td>01/11/2024</td>
+                    <td>18:00 | 20:00</td>
+                    <td>Pekerjaan Mendesak</td>
+                    <td>Disetujui</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Siti Nurhaliza</td>
+                    <td>01/11/2024</td>
+                    <td>17:30 | 19:30</td>
+                    <td>Acara Keluarga</td>
+                    <td>Disetujui</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Budi Santoso</td>
+                    <td>01/11/2024</td>
+                    <td>18:00 | 21:00</td>
+                    <td>Proyek Tambahan</td>
+                    <td>Menunggu konfirmasi</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Lina Kurniawati</td>
+                    <td>01/11/2024</td>
+                    <td>17:00 | 19:00</td>
+                    <td>Pekerjaan Rutin</td>
+                    <td>Disetujui</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Rudi Hartono</td>
+                    <td>01/11/2024</td>
+                    <td>18:30 | 22:00</td>
+                    <td>Meeting Klien</td>
+                    <td>Menunggu konfirmasi</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const geserTarget = document.querySelectorAll('.geser-target');
+        const closeSidebar = document.querySelector('.close-sidebar');
+    
+        navbarToggler.addEventListener('click', () => {
+            geserTarget.forEach(element => {
+                element.classList.add('geser');
+            });
+            navbarToggler.classList.add('d-none');
+        });
+    
+        closeSidebar.addEventListener('click', () => {
+            geserTarget.forEach(element => {
+                element.classList.remove('geser');
+            });
+            navbarToggler.classList.remove('d-none');
+        });
+    </script>
+</body>
+</html>

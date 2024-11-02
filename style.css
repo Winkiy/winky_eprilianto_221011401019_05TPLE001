@@ -1,0 +1,14 @@
+.nav-item>a {
+    border-radius: 0.3em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.nav-item>a:hover {
+    background-color: #0d6dfdf3;
+    border-radius: 0.3em;
+    color: white !important;
+}
+
+.geser {
+    width: 80vw;
+    margin-left: 20vw;
+}

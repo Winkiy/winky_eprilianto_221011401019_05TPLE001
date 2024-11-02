@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="../images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar bsb-navbar bsb-navbar-caret py-3 geser-target geser" style="background-color: #373dff; height: 4em;">
+        <div class="container position-relative justify-content-end">
+            <div class="d-flex justify-content-end">
+                    <img src="../images/user.jpg" class="rounded-circle" width="40" height="40">
+            </div>
+            <button class="navbar-toggler border-0 position-absolute start-0 text-white d-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+        </div>
+        <div class="offcanvas show offcanvas-start border-0 shadow" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" style="width: 20vw;">
+            <div class="offcanvas-header" style="background-color: #373dff;" data-bs-theme="dark">
+                <img class="mx-3" src="../images/univ_pamulang.png" width="30" height="30" alt="">
+                <p class="offcanvas-title text-white" id="offcanvasNavbarLabel">Universitas Pamulang</p>
+                <button type="button" class="btn-close close-sidebar" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="d-flex mt-3 mx-3">
+                <img src="../images/user.jpg" class="rounded-circle" width="40" height="40">
+                <div class="ms-3">
+                    <h6 class="fw-bold fs-6 text-bold">Welcome, Winky Eprilianto</h6>
+                    <p class="fw-bold" style="color: rgb(55, 188, 66);">Administrator</p>
+                </div>
+            </div>
+            <hr class="mx-3">
+            <div class="offcanvas-body fs-5">
+            <ul class="navbar-nav justify-content-end flex-grow-1   ">
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="../index.html"><i class="bi bi-house-door"></i> Dasboard</a>
+                </li>
+
+                <h6 class="fw-bold ms-3 mt-3 text-secondary">MENU KARYAWAN</h6>
+
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="karyawan.html"><i class="bi bi-person-lines-fill"></i> Karyawan</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="jabatan.html"><i class="bi bi-shield-fill"></i> Jabatan</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="divisi.html"><i class="bi bi-buildings-fill"></i> Divisi</a>
+                </li>
+                
+                <h6 class="fw-bold ms-3 mt-3 text-secondary">MENU ABSENSI</h6>
+
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="absensi.html"><i class="bi bi-calendar2-range-fill"></i> Absensi</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="izin.html"><i class="bi bi-calendar2-range-fill"></i> Izin</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active px-3 text-secondary" aria-current="page" href="lembur.html"><i class="bi bi-calendar2-range-fill"></i> Lembur</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="d-flex geser-target geser">
+      <div id="content" class="w-100">
+        <!-- Modal untuk Form Tambah Karyawan -->
+        <div class="modal modal-dialog modal-xl fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Karyawan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="formKaryawan">
+                  <!-- Nama Karyawan -->
+                  <div class="mb-3">
+                    <label for="namaKaryawan" class="form-label">Nama Karyawan</label>
+                    <input type="text" class="form-control" id="namaKaryawan" placeholder="Masukkan Nama Karyawan" required>
+                  </div>
+              
+                  <!-- Jenis Kelamin -->
+                  <div class="mb-3">
+                    <label class="form-label">Jenis Kelamin</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="jenisKelamin" id="lakiLaki" value="Laki-Laki" required>
+                      <label class="form-check-label" for="lakiLaki">Laki-Laki</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="jenisKelamin" id="perempuan" value="Perempuan">
+                      <label class="form-check-label" for="perempuan">Perempuan</label>
+                    </div>
+                  </div>
+              
+                  <!-- Email -->
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Masukkan Email" required>
+                  </div>
+              
+                  <!-- Alamat -->
+                  <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <textarea class="form-control" id="alamat" rows="3" placeholder="Masukkan Alamat" required></textarea>
+                  </div>
+              
+                  <!-- Jabatan -->
+                  <div class="mb-3">
+                    <label for="jabatan" class="form-label">Jabatan</label>
+                    <select class="form-select" id="jabatan" required>
+                      <option value="" selected disabled>Pilih Jabatan</option>
+                      <option value="Manager">Manager</option>
+                      <option value="Staff">Staff</option>
+                      <option value="Supervisor">Supervisor</option>
+                      <option value="Admin">Admin</option>
+                      <option value="HRD">HRD</option>
+                      <option value="Marketing">Marketing</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-success" onclick="tambahKaryawan()">Tambah</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabel Data Karyawan -->
+        <div class="container-fluid py-5 px-4" style="background-image: linear-gradient(to left, #0d15fd, #2331fa);">
+          <div class="container">
+            <h1 class="text-white my-3 fs-2">Data Karyawan</h1>
+
+            <div class="container p-4 my-4 bg-white rounded">
+              <button type="button" class="btn btn-primary mb-3 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Karyawan</button>
+              <table class="table table-bordered table-hover">
+                <thead class="table-primary">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Kode</th>
+                    <th scope="col">Nama Karyawan</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Jabatan</th>
+                    <th scope="col">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="karyawanTable">
+                          <tr>
+                            <td>1</td>
+                            <td>K001</td>
+                            <td>Agus Setiawan</td>
+                            <td>agus.setiawan@gmail.com</td>
+                            <td>Jl. Kebon Jeruk No. 15, Jakarta</td>
+                            <td>Manager</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>K002</td>
+                            <td>Siti Nurhaliza</td>
+                            <td>siti.nurhaliza@gmail.com</td>
+                            <td>Jl. Manggis No. 20, Bandung</td>
+                            <td>Staff</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>K003</td>
+                            <td>Budi Santoso</td>
+                            <td>budi.santoso@gmail.com</td>
+                            <td>Jl. Kenanga No. 30, Surabaya</td>
+                            <td>Supervisor</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>K004</td>
+                            <td>Lina Kurniawati</td>
+                            <td>lina.kurniawati@gmail.com</td>
+                            <td>Jl. Mawar No. 50, Semarang</td>
+                            <td>Admin</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>K005</td>
+                            <td>Rudi Hartono</td>
+                            <td>rudi.hartono@gmail.com</td>
+                            <td>Jl. Melati No. 35, Yogyakarta</td>
+                            <td>HRD</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>K006</td>
+                            <td>Ani Lestari</td>
+                            <td>ani.lestari@gmail.com</td>
+                            <td>Jl. Sukun No. 40, Medan</td>
+                            <td>Marketing</td>
+                            <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                          
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const geserTarget = document.querySelectorAll('.geser-target');
+        const closeSidebar = document.querySelector('.close-sidebar');
+
+        navbarToggler.addEventListener('click', () => {
+        geserTarget.forEach(element => {
+            element.classList.add('geser');
+        });
+        navbarToggler.classList.add('d-none');
+        });
+
+        closeSidebar.addEventListener('click', () => {
+        geserTarget.forEach(element => {
+        element.classList.remove('geser');
+        });
+        navbarToggler.classList.remove('d-none');
+        });
+
+
+        function hapusData(button) {
+            if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+                const row = button.closest("tr");
+                row.remove();
+                updateNomor();
+            }
+        }
+
+        function updateNomor() {
+            const rows = document.querySelectorAll("#karyawanTable tr");
+            rows.forEach((row, index) => {
+                row.querySelector("td").innerText = index + 1;
+            });
+        }
+
+        function tambahKaryawan() {
+            const nama = document.getElementById("namaKaryawan").value;
+            const jenisKelamin = document.querySelector("input[name='jenisKelamin']:checked")?.value;
+            const email = document.getElementById("email").value;
+            const alamat = document.getElementById("alamat").value;
+            const jabatan = document.getElementById("jabatan").value;
+
+            if (!nama || !jenisKelamin || !email || !alamat || !jabatan) {
+                alert("Mohon lengkapi semua data!");
+                return;
+            }
+
+            const table = document.getElementById("karyawanTable");
+            const kode = `K00${table.rows.length + 1}`;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${table.rows.length + 1}</td>
+                <td>${kode}</td>
+                <td>${nama}</td>
+                <td>${email}</td>
+                <td>${alamat}</td>
+                <td>${jabatan}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="hapusData(this)">Hapus</button></td>
+            `;
+
+            table.appendChild(row);
+
+            document.getElementById("formKaryawan").reset();
+            const modalElement = document.getElementById('exampleModal');
+            const modal = bootstrap.Modal.getInstance(modalElement);
+            modal.hide();
+        }
+    </script>
+</body>
+</html>
